@@ -15,7 +15,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*", "*://*.twitter.com/*"],
-      "js": ["colour-visited-urls.js"]
+      "js": ["colour-visited-urls.js"],
+	  "run_at": "document_start"
     }
   ]
 
