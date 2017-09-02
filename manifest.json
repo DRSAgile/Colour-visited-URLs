@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Colour visited URLs",
 	"version": "1.0",
-	"description": "Works on YouTube and Twitter",
+	"description": "For YouTube and Twitter: allows to colour visited URLs different versus URLs that are not yet visited, provides other features",
 	"icons":
 	{
 		"48": "icons/colour-visited-urls.svg",
