@@ -56,20 +56,24 @@ function findAndUpdateTagAWithinElement(elem)
 {
 	browser.storage.local.get("removeURLsQueriesAndFragments").then(function(result)
 	{
+		//console.log('DRS: here1');
 		var list = elem.querySelectorAll('[id=video-title]');
 		for (var item of list)
 		{  
+			//console.log('DRS: here2');
 			var currentNode = item;
 			while (currentNode)
 			{
 				if (currentNode.tagName == 'A')
 				{  // removing a class from "a" tag that tampers with showing correct "a:visited" colour, set above in te GM_addStyle:
+				//console.log('DRS: here3');
 					currentNode.classList = currentNode.classList.toString().replace(new RegExp(escapeRegExp('style-scope'), "g"), '');
 					if (result.removeURLsQueriesAndFragments)
 					{
 						currentNode.href = currentNode.href.replace(/&list=([_a-zA-Z0-9]*)/g, '');
 						currentNode.href = currentNode.href.replace(/&index=([0-9]*)/g, '');
-						currentNode.href = currentNode.href.replace(/&t=([0-9]*)s/g, ''); //console.log('DRS: ' + currentNode.href);
+						currentNode.href = currentNode.href.replace(/&t=([0-9]*)s/g, '');
+						//console.log('DRS: ' + currentNode.href);
 					}
 					break;
 				}
@@ -85,7 +89,7 @@ function findAndUpdateTagAWithinElement(elem)
 //console.log('DRS: start');
 window.addEventListener("DOMContentLoaded", function()
 {	//console.log('DRS: DOMContentLoaded fired'); 
-	var css = 'a:visited {color: darkmagenta !important;} .js-display-url, .title, .title-and-badge, text-wrapper, #title-wrapper,  .style-scope.ytd-compact-video-renderer, .style-scope.ytd-playlist-panel-video-renderer {color: inherit !important;}',
+	var css = 'a:visited {color: darkmagenta !important;} .js-display-url, .title, .title-and-badge, text-wrapper, #title-wrapper,  .style-scope.ytd-compact-video-renderer, .style-scope.ytd-playlist-panel-video-renderer {color: inherit !important;} #byline {color: rgba(17, 17, 17, 0.6) !important;}',
 		head = document.head || document.getElementsByTagName('head')[0],
 		style = document.createElement('style');
 	style.type = 'text/css';
