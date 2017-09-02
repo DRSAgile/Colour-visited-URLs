@@ -1,0 +1,22 @@
+{
+
+  "manifest_version": 2,
+  "name": "Colour visited URLs",
+  "version": "1.0",
+
+  "description": "Works on YouTube and Twitter",
+
+  "icons":
+  {
+    "48": "icons/colour-visited-urls.svg"
+    "96": "icons/colour-visited-urls.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*", "*://*.twitter.com/*"],
+      "js": ["colour-visited-urls.js"]
+    }
+  ]
+
+}
