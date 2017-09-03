@@ -3,6 +3,17 @@ function onError(error)
 	console.log(`Error: ${error}`);
 }
 
+function getFormattedDateAndTime()
+{
+	var d = new Date();
+	return d.getFullYear() + "." +
+	("00" + (d.getMonth() + 1)).slice(-2) + "." + 
+    ("00" + d.getDate()).slice(-2) + " " + 
+    ("00" + d.getHours()).slice(-2) + ":" + 
+    ("00" + d.getMinutes()).slice(-2) + ":" + 
+    ("00" + d.getSeconds()).slice(-2);
+}
+
 function escapeRegExp(str)
 {
 	return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
@@ -86,7 +97,7 @@ function findAndUpdateTagAWithinElement(elem)
 	}, onError);
 }        
 
-//console.log('DRS: start');
+console.log('DRS: start ' + getFormattedDateAndTime());
 window.addEventListener("DOMContentLoaded", function()
 {	//console.log('DRS: DOMContentLoaded fired'); 
 	var css = 'a:visited {color: darkmagenta !important;} .js-display-url, .title, .title-and-badge, text-wrapper, #title-wrapper,  .style-scope.ytd-compact-video-renderer, .style-scope.ytd-playlist-panel-video-renderer {color: inherit !important;} #byline {color: rgba(17, 17, 17, 0.6) !important;}',
